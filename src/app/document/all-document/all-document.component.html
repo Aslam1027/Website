@@ -1,0 +1,27 @@
+<div class="row mb-3 align-items-center justify-content-between">
+  <div class="col-md-auto col-sm-auto">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" *ngFor="let tab of tabs;let i as index">
+        <a class="nav-link active" id="tab{{i}}" (click)="changeTab(tab)">
+          <div class="section-title">
+            <span>{{tab.tabName}}</span>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+  <div class="col-md-auto col-sm-auto">
+    <h4 class="widget-title">
+      <button *hasClaim="'all_documents_create_document'" class="btn btn-success btn-sm m-right-10"
+        [routerLink]="['/documents/add']">
+        <i class="las la-plus"></i>
+        {{'ADD_DOCUMENT' | translate}}
+      </button>
+    </h4>
+  </div>
+</div>
+<div class="content-area">
+  <app-document-list *ngIf="selectedTab == 1 || selectedTab == 4"></app-document-list>
+</div>
